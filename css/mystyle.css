@@ -1,0 +1,19 @@
+.lmsecton{
+	min-height: 200px;
+	background-color: #007bff;
+	padding: 5px;
+	color: #fff;
+}
+
+.loginbox{
+	margin-top: 20px;
+	padding: 33px;
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+	border-top: 2px solid #5ea4f3;
+}
+
+footer{
+	background-color:  #eee; 
+	padding: 5px;
+	min-height: 50px;
+}

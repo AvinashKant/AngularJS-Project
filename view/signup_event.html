@@ -1,0 +1,44 @@
+<div class="col-md-4">	
+	<img src="assest/images/a.jpg">		
+</div>
+<div class="col-md-8 loginbox">	
+	<div ng-if="checked" class="alert alert-danger">
+		{{ PostDataResponse }}
+	</div>
+	<form name="form" ng-submit="submitUserData()" role="form">
+
+		<div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+			<label for="username">Email address:</label>
+			<input type="email" name="username" id="username" class="form-control" ng-model="username" required />
+			<span ng-show="form.username.$error.required"  class="text-danger">Email is required(ex:xyz@domail.com)</span>
+			<span class="help-block" ng-show="form.username.$error.email">
+			Not valid email!</span>
+		</div>
+		<div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+			<label for="password">Password</label>
+			<input type="password" name="password" id="password" class="form-control" ng-model="password" required ng-minlength="6" autocomplete="off" />
+			<span ng-show="form.password.$error.required"  class="text-danger">Password is required</span>
+			<span ng-show="form.password.$error.minlength"  class="text-danger">Password is atleast 6 characters</span>
+		</div>
+		<div class="form-group" ng-class="{ 'has-error': form.cpassword.$dirty && form.cpassword.$error.required }">
+			<label for="cpassword">Confirm Password</label>
+			<input type="password" name="cpassword" id="cpassword" class="form-control" ng-model="cpassword" required ng-minlength="6" ng-keyup="compare()" autocomplete="off"/>
+			<span ng-show="form.cpassword.$error.required" class="text-danger">Confirm Password is required</span>
+			<span ng-show="form.cpassword.$error.minlength" class="text-danger">Confirm Password is atleast 6 characters</span>
+			<div ng-if="password !== cpassword" class="text-danger">Confirm Password does not match</div>
+		</div>
+		<div class="form-actions">
+			<button type="submit" ng-disabled="form.$invalid || form.dataLoading" class="btn btn-primary">SignUp</button>
+			
+			<a href="#!Login" class="btn btn-link">Login</a>
+		</div>
+	</div>
+
+
+
+	<div class="clearfix"></div>
+	<hr>
+
+
+
+

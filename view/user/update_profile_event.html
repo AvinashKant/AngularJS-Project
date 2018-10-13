@@ -1,0 +1,58 @@
+<div class="clearfix"></div>
+<div class="col-md-12">
+	<div style="min-height: 300px;box-shadow: 1px 1px 5px 1px;" class="col-md-4">
+		
+		<form style="margin-top: 190px;">
+			<input type="file" name="userphoto">
+			<hr>
+			<input class="btn btn-primary" type="submit" name="photoSubmit">
+		</form>
+
+	</div>
+	<div class="col-md-8">
+		<h3>Update your profile</h3>
+		<hr>
+		<div ng-if="checked" class="alert alert-danger">
+			{{ returnResponse }}
+		</div>
+		
+		<form name="form" ng-submit="updateUserProfile()" role="form">
+			<div class="col-md-6">
+				<div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+					<label for="username">Name:</label>
+					<input minlength="3" type="text" name="username" id="username" class="form-control" ng-model="username" ng-pattern="/^[A-Za-z ]{1,}$/" required />
+					<span ng-show="form.username.$error.pattern" class="help-block"><i>(letters and space only, no punctuation or special characters)</i></span>
+					<span ng-show="form.username.$error.required" class="help-block">Name is required</span>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error': form.userage.$dirty && form.username.$error.required }">
+					<label for="userage">Age:</label>
+					<input type="number" name="userage" id="userage" class="form-control" ng-model="userage" ng-pattern="/[0-9]/" required />
+					<span ng-show="form.userage.$error.pattern" class="help-block">You can enter only number.</span>
+					<span ng-show="form.userage.$error.required" class="help-block">Age is required</span>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error': form.usergendar.$dirty && form.username.$error.required }">
+					<label><input type="radio" name="usergendar" value="Male" ng-model="usergendar"> Male</label>
+					<label><input type="radio" name="usergendar" value="Female" ng-model="usergendar"> Female</label>
+					<span ng-show="form.usergendar.$error.required" class="help-block">Gender is required</span>
+				</div>
+			</div>
+			<div class="col-md-6">
+
+				<div class="form-group" ng-class="{ 'has-error': form.userabloutme.$dirty && form.username.$error.required }">
+					<label for="userabloutme">About me:</label>
+					<textarea class="form-control" cols="20" rows="5" name="userabloutme" id="userabloutme" ng-model="userabloutme" required ></textarea>
+					<span ng-show="form.userabloutme.$error.required" class="help-block">Please write something about yourself.</span>
+				</div>	
+				<hr>
+
+				<div class="form-actions">
+					<button type="submit" ng-disabled="form.$invalid || form.dataLoading" class="btn btn-primary">Update Profile</button>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</div>
+<div class="clearfix"></div>
+
+
